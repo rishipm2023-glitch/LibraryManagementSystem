@@ -1,12 +1,20 @@
-# Version 1 - Basic Login System
+# Version 2 - Multiple Users Login
+
+import getpass
 
 print("===== Library Management System =====")
 
-username = input("Enter username: ")
-password = input("Enter password: ")
+users = {
+    "admin": "library123",
+    "student": "stud123",
+    "staff": "staff123"
+}
 
-if username == "admin" and password == "library123":
+username = input("Enter username: ")
+password = getpass.getpass("Enter password: ")
+
+if username in users and users[username] == password:
     print("Login successful ✅")
-    print("Welcome to Library Management System!")
+    print(f"Welcome, {username}!")
 else:
     print("Invalid username or password ❌")
